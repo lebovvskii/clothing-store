@@ -6,13 +6,13 @@ import "./navigation.styles.scss";
 export const Navigation = () => {
   return (
     <Fragment>
-      <div className="navbar">
-        <Link className="logo__container" to="/">
+      <div className="navigation">
+        <Link className="logo-container" to="/">
           <CrownLogo className="logo" />
         </Link>
-        <div className="nav__links">
-          <Link className="nav__link" to="/shop">
-            SHOP   
+        <div className="nav-links-container">
+          <Link className="nav-link" to="/shop">
+            SHOP
           </Link>
         </div>
       </div>

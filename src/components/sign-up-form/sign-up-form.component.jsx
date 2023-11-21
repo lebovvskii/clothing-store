@@ -19,14 +19,14 @@ export const SignUpForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  console.log(formFields);
-
   const handleSubmits = async (event) => {
     event.preventDefault();
+
     if (password !== confirmPassword) {
       alert("пароли не совпадают");
       return;
     }
+
     try {
       const { user } = await createAuthUserWithEmailAndPassword(
         email,

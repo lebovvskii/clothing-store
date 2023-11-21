@@ -24,7 +24,7 @@ export const SignUpForm = () => {
   const handleSubmits = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      console.log("Пароли не совпадают");
+      alert("пароли не совпадают");
       return;
     }
     try {
@@ -40,7 +40,7 @@ export const SignUpForm = () => {
       } else {
         alert(error);
       }
-    }  
+    }
   };
 
   const handleChange = (event) => {

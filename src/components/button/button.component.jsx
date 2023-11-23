@@ -8,9 +8,8 @@ const BUTTON_TYPES_CLASSES = {
 export const Button = ({ children, buttonType, ...props }) => {
   return (
     <button
-      type={props.type}
       className={`button-container ${BUTTON_TYPES_CLASSES[buttonType]}`}
-      onClick={props.onClick}
+      {...props}
     >
       {children}
     </button>

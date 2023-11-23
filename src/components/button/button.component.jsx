@@ -7,7 +7,11 @@ const BUTTON_TYPES_CLASSES = {
 
 export const Button = ({ children, buttonType, ...props }) => {
   return (
-    <button className={`button-container ${BUTTON_TYPES_CLASSES[buttonType]}`}>
+    <button
+      type={props.type}
+      className={`button-container ${BUTTON_TYPES_CLASSES[buttonType]}`}
+      onClick={props.onClick}
+    >
       {children}
     </button>
   );

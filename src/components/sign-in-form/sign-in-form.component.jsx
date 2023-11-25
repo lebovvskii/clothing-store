@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   createUserDocumentFromAuth,
   signInWithGooglePopup,
@@ -7,6 +7,7 @@ import { FormInput } from "../form-input/form-input.component";
 import "./sign-in-form.styles.scss";
 import { Button } from "../button/button.component";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   email: "",
@@ -16,6 +17,7 @@ const defaultFormFields = {
 export const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -30,17 +32,19 @@ export const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password,
       );
-      alert(`вы вошли, ваш токен: ${response.user.accessToken}`);
+
+      setCurrentUser(user    );
+      alert(`вы вошли, ${user.displayName}`);
       resetFormFields();
     } catch (error) {
       console.log({ error });
       switch (error.code) {
         case "auth/wrong-password":
-          alert("incorr ect password");
+          alert("incorr  ect password");
           break;
         case "auth/user-not-found":
           alert("there's no such user");

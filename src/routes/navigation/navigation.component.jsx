@@ -10,7 +10,7 @@ import { CartDropdown } from "../../components/cart-dropdown/cart-dropdown.compo
 
 export const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <div className="navigation">

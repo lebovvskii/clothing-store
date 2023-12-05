@@ -1,17 +1,17 @@
-import "./category-item.styles.scss";
+import "./directory-item.styles.scss";
 
-export const CategoryItem = ({ category }) => {
+export const DirectoryItem = ({ category }) => {
   const { imageUrl, title } = category;
   return (
-    <div className="category-items-container">
+    <div className="directory-item-container">
       {/* <img /> */}
       <div
-        className="background-image"
+        className="background-image"  
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className="category-body-container">
+      <div className="directory-body-container">
         <h2>{title.toUpperCase()}</h2>
         <p>Shop Now</p>
       </div>

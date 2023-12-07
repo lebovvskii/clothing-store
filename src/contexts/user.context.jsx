@@ -1,4 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
+import { createAction } from "../utils/reducer/reducer.utils";
 import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
@@ -15,8 +16,6 @@ export const USER_ACTION_TYPES = {
 };
 
 const userReduser = (state, action) => {
-  console.log("dispatched"   );
-  console.log({ action });
   const { type, payload } = action;
   switch (type) {
     case USER_ACTION_TYPES.SET_CURRENT_USER:
@@ -35,9 +34,8 @@ const INITIAL_STATE = {
 
 export const UserProvider = ({ children }) => {
   const [{ currentUser }, dispatch] = useReducer(userReduser, INITIAL_STATE);
-  console.log({ currentUser });
   const setCurrentUser = (user) => {
-    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+    dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
   };
 
   const value = { currentUser, setCurrentUser };

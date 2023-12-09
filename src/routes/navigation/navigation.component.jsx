@@ -16,7 +16,7 @@ import { CartDropdown } from "../../components/cart-dropdown/cart-dropdown.compo
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 export const Navigation = () => {
-  const currentUser = useSelector(selectCurrentUser );
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>

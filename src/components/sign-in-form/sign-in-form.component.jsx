@@ -36,7 +36,6 @@ export const SignInForm = () => {
       alert(`вы вошли, ${user.displayName}`);
       resetFormFields();
     } catch (error) {
-      console.log({ error });
       switch (error.code) {
         case "auth/wrong-password":
           alert("incorr  ect password");

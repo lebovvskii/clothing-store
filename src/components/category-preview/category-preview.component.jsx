@@ -8,7 +8,7 @@ export const CategoryPreview = ({ title, products }) => {
       <h2>
         <Link to={title} className="title">
           {title.toUpperCase()}
-        </Link> 
+        </Link>
       </h2>
       <div className="preview ">
         {products
